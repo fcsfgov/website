@@ -1,128 +1,195 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Report Threat | Federal Cyber Security Force</title>
-
-<style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Report Threat | Federal Cyber Security Force</title>
+  <style>
     :root {
-      --background: #f2f4f8;
+      --background: #f9fafc;
       --primary: #001f3f;
-      --accent: #007b8a;
-      --text: #111;
-      --light-gray: #e0e0e0;
+      --accent: #00b4d8;
+      --text: #222;
+      --border: #dcdcdc;
     }
+
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       background-color: var(--background);
       color: var(--text);
     }
+
     header {
       background-color: var(--primary);
       color: white;
-      padding: 30px 20px;
-      border-bottom: 4px solid var(--accent);
+      padding: 20px;
       text-align: center;
+      border-bottom: 3px solid var(--accent);
     }
+
     header img {
-      height: 90px;
+      height: 70px;
       margin-bottom: 10px;
     }
+
     header h1 {
-      font-size: 2rem;
+      font-size: 1.8rem;
       margin: 0;
     }
+
     header p {
-      font-size: 0.95rem;
-      color: #ccc;
+      font-size: 0.9rem;
+      color: #cccccc;
     }
+
     nav {
-      margin-top: 10px;
+      margin-top: 12px;
     }
+
     nav a {
-      margin: 0 12px;
+      margin: 0 10px;
       text-decoration: none;
       color: #ffffff;
-      font-weight: bold;
-      font-size: 14px;
+      font-size: 0.9rem;
     }
+
     nav a:hover {
       text-decoration: underline;
     }
+
     main {
-      max-width: 1000px;
+      max-width: 700px;
       margin: 40px auto;
       padding: 30px;
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     }
+
     h2 {
-      font-size: 24px;
+      font-size: 1.6rem;
       color: var(--primary);
       margin-bottom: 20px;
     }
-    p {
-      font-size: 16px;
-      line-height: 1.7;
-      color: #333;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
     }
-    footer {
-      text-align: center;
-      background-color: var(--light-gray);
-      padding: 25px;
+
+    label {
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    input,
+    textarea {
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
       font-size: 0.95rem;
-      color: var(--primary);
-      border-top: 1px solid #ccc;
     }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    button {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #003366;
+    }
+
+    .note {
+      font-size: 0.85rem;
+      color: #666;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .note a {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 60px;
+      text-align: center;
+      background-color: #f1f1f1;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: var(--primary);
+      border-top: 1px solid var(--border);
+    }
+
     footer strong {
       display: block;
-      margin-top: 10px;
+      margin-top: 8px;
       font-size: 1rem;
     }
   </style>
-
 </head>
 <body>
+
 <header>
-<img alt="FCSF Logo" src="https://i.ibb.co/dJMt7QB2/FEDERAL-CYBER-SECURITY-FORCE-removebg-preview.png"/>
-<h1>Federal Cyber Security Force</h1>
-<p>Cyber Intelligence &amp; Enforcement Division</p>
-<nav>
-<a href="index.html">Home</a>
-<a href="about.html">About Us</a>
-<a href="divisions.html">Divisions</a>
-<a href="report.html">Report Threat</a>
-<a href="career.html">Careers</a>
-<a href="press-releases.html">Press Release</a>
-<a href="login.html">Login</a>
-</nav>
+  <img src="https://i.ibb.co/f7ZKvBm/FEDERAL-CYBER-SECURITY-FORCE-removebg-preview-1.png" alt="FCSF Logo">
+  <h1>Federal Cyber Security Force</h1>
+  <p>Cyber Intelligence & Enforcement Division</p>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="divisions.html">Divisions</a>
+    <a href="report.html">Report Threat</a>
+    <a href="career.html">Careers</a>
+    <a href="press-releases.html">Press Release</a>
+    <a href="login.html">Login</a>
+  </nav>
 </header>
+
 <main>
-<h2>Report a Cybersecurity Threat</h2>
-<form action="/submit-threat" enctype="multipart/form-data" method="POST">
-<label for="name">Full Name</label>
-<input id="name" name="name" placeholder="e.g., Ahsan Raza" required="" type="text"/>
-<label for="email">Official Email Address</label>
-<input id="email" name="email" placeholder="you@example.gov.pk" required="" type="email"/>
-<label for="phone">Phone Number</label>
-<input id="phone" name="phone" placeholder="e.g., +92-300-1234567" required="" type="tel"/>
-<label for="threat">Detailed Description of Threat</label>
-<textarea id="threat" name="threat" placeholder="Provide as much detail as possible..." required=""></textarea>
-<label for="attachment">Attach Evidence (images, screenshots, documents)</label>
-<input accept="image/*,.pdf,.doc,.docx,.txt" id="attachment" name="attachment" type="file"/>
-<button type="submit">Submit Threat Report</button>
-</form>
-<p style="margin-top: 40px; font-size: 14px; color: #555; text-align: center;">
-  For any queries or follow-up communication regarding this report, you may be contacted by an FCSF officer.
-  You may also reach us at: <a href="mailto:cso@fcsf.pk" style="color: var(--primary); text-decoration: underline;">cso@fcsf.pk</a>
-</p>
+  <h2>Report a Cybersecurity Threat</h2>
+  <form action="/submit-threat" method="POST" enctype="multipart/form-data">
+    <label for="name">Full Name</label>
+    <input type="text" id="name" name="name" required placeholder="e.g., Ahsan Raza">
+
+    <label for="email">Official Email Address</label>
+    <input type="email" id="email" name="email" required placeholder="you@example.gov.pk">
+
+    <label for="phone">Phone Number</label>
+    <input type="tel" id="phone" name="phone" required placeholder="e.g., +92-300-1234567">
+
+    <label for="threat">Detailed Description of Threat</label>
+    <textarea id="threat" name="threat" required placeholder="Provide as much detail as possible..."></textarea>
+
+    <label for="attachment">Attach Evidence (images, screenshots, documents)</label>
+    <input type="file" id="attachment" name="attachment" accept="image/*,.pdf,.doc,.docx,.txt">
+
+    <button type="submit">Submit Threat Report</button>
+  </form>
+
+  <div class="note">
+    For any queries or follow-up communication, an FCSF officer may contact you.
+    You may also reach us at:
+    <a href="mailto:cso@fcsf.pk">cso@fcsf.pk</a>
+  </div>
+</main>
+
 <footer>
-    © 2025 Federal Cyber Security Force | National Cybersecurity Authority
-    <strong>Pakistan Zindabad</strong>
+  © 2025 Federal Cyber Security Force | National Cybersecurity Authority
+  <strong>Pakistan Zindabad</strong>
 </footer>
-</main></body>
+
+</body>
 </html>
