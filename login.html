@@ -1,105 +1,154 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>FCSF Officer Login</title>
-
-<style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FCSF Officer Login</title>
+  <style>
     :root {
-      --background: #f2f4f8;
       --primary: #001f3f;
       --accent: #007b8a;
-      --text: #111;
-      --light-gray: #e0e0e0;
+      --bg: #f4f7fa;
+      --card-bg: #ffffff;
+      --text-dark: #1a1a1a;
+      --text-light: #666;
+      --radius: 12px;
     }
-    body {
+
+    * {
+      box-sizing: border-box;
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--background);
-      color: var(--text);
+      padding: 0;
     }
-    header {
-      background-color: var(--primary);
-      color: white;
-      padding: 30px 20px;
-      border-bottom: 4px solid var(--accent);
+
+    body {
+      background-color: var(--bg);
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: var(--text-dark);
+    }
+
+    .login-wrapper {
+      background-color: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      width: 100%;
+      max-width: 420px;
+      padding: 40px 32px;
       text-align: center;
     }
-    header img {
+
+    .login-wrapper img {
       height: 90px;
-      margin-bottom: 10px;
+      margin-bottom: 16px;
     }
-    header h1 {
-      font-size: 2rem;
-      margin: 0;
+
+    .login-wrapper h2 {
+      font-size: 22px;
+      color: var(--primary);
+      margin-bottom: 6px;
     }
-    header p {
-      font-size: 0.95rem;
-      color: #ccc;
+
+    .secure-badge {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 13px;
+      color: var(--text-light);
+      margin-bottom: 28px;
+      gap: 6px;
     }
-    nav {
-      margin-top: 10px;
+
+    .secure-badge svg {
+      height: 14px;
+      width: 14px;
+      fill: var(--accent);
     }
-    nav a {
-      margin: 0 12px;
-      text-decoration: none;
-      color: #ffffff;
-      font-weight: bold;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      text-align: left;
+    }
+
+    label {
       font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 4px;
     }
-    nav a:hover {
+
+    input {
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      transition: border 0.2s ease;
+    }
+
+    input:focus {
+      border-color: var(--accent);
+      outline: none;
+    }
+
+    button {
+      background-color: var(--primary);
+      color: #fff;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    button:hover {
+      background-color: var(--accent);
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--text-light);
+    }
+
+    .footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .footer a:hover {
       text-decoration: underline;
     }
-    main {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 30px;
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.05);
-    }
-    h2 {
-      font-size: 24px;
-      color: var(--primary);
-      margin-bottom: 20px;
-    }
-    p {
-      font-size: 16px;
-      line-height: 1.7;
-      color: #333;
-    }
-    footer {
-      text-align: center;
-      background-color: var(--light-gray);
-      padding: 25px;
-      font-size: 0.95rem;
-      color: var(--primary);
-      border-top: 1px solid #ccc;
-    }
-    footer strong {
-      display: block;
-      margin-top: 10px;
-      font-size: 1rem;
-    }
   </style>
-
 </head>
 <body>
-<div class="login-container">
-<h2>FCSF Officer Login</h2>
-<p>Authorized personnel only. This portal is strictly for internal agency use. All access is monitored.</p>
-<form action="/authenticate" method="POST">
-<label for="email">Official Email Address</label>
-<input id="email" name="email" required="" type="email"/>
-<label for="password">Secure Password</label>
-<input id="password" name="password" required="" type="password"/>
-<button type="submit">Sign In</button>
-</form>
-<div class="footer">
-      For access-related issues, contact: <a href="mailto:cso@fcsf.pk">cso@fcsf.pk</a>
-</div>
-</div>
+  <div class="login-wrapper">
+    <img src="https://i.ibb.co/f7ZKvBm/FEDERAL-CYBER-SECURITY-FORCE-removebg-preview-1.png" alt="FCSF Logo" />
+    <h2>FCSF Officer Login</h2>
+    <div class="secure-badge">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zM11 17l-4-4 1.41-1.41L11 14.17l4.59-4.59L17 11l-6 6z"/>
+      </svg>
+      Secure Login – Authorized Personnel Only
+    </div>
+    <form action="/authenticate" method="POST">
+      <div>
+        <label for="email">Official Email Address</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+      <div>
+        <label for="password">Secure Password</label>
+        <input type="password" id="password" name="password" required />
+      </div>
+      <button type="submit">Sign In</button>
+    </form>
+    <div class="footer">
+      For access issues, contact <a href="mailto:cso@fcsf.pk">cso@fcsf.pk</a>
+    </div>
+  </div>
 </body>
 </html>
